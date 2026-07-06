@@ -9,7 +9,7 @@ from ingredient_types import (
 
 class TestDatabase:
 
-    def test_init(self):
+    def test_init_creates_buns_and_ingredients(self):
         database = Database()
 
         assert len(database.buns) == 3
@@ -23,7 +23,7 @@ class TestDatabase:
             (2, "red bun", 300),
         ],
     )
-    def test_available_buns(self, index, name, price):
+    def test_available_buns_returns_all_buns(self, index, name, price):
         database = Database()
 
         bun = database.available_buns()[index]
@@ -42,7 +42,7 @@ class TestDatabase:
             (5, INGREDIENT_TYPE_FILLING, "sausage", 300),
         ],
     )
-    def test_available_ingredients(self, index, ingredient_type, name, price):
+    def test_available_ingredients_returns_all_ingredients(self, index, ingredient_type, name, price):
         database = Database()
 
         ingredient = database.available_ingredients()[index]
